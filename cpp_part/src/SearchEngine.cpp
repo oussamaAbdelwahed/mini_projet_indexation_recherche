@@ -17,7 +17,7 @@ bool SearchEngine::doIndexationProcess() {
    Mat imgMatrix;
    int * hisImg;
    int * principalDiag;
-   for(int i=0;i<1000;i++) {
+   for(int i=0;i<=1000;i++) {
       strcpy(imgName,this->IMAGES_DB_PATH);
       strcat(imgName,this->PATH_SEP);
 
@@ -26,13 +26,16 @@ bool SearchEngine::doIndexationProcess() {
       strcat(imgName,tmp);
       strcat(imgName,".jpg");
       imgMatrix=imread(imgName,CV_LOAD_IMAGE_GRAYSCALE);
+      if(!imgMatrix.empty()){
+          hisImg=this->indexationStrategies.createHistogram(&imgMatrix);
+          principalDiag=this->indexationStrategies.createPrincipalDiagonalFromCorrelograme(&imgMatrix);
 
-      hisImg=this->indexationStrategies.createHistogram(&imgMatrix);
-      principalDiag=this->indexationStrategies.createPrincipalDiagonalFromCorrelograme(&imgMatrix);
-
-      for(int j =0 ; j<256;j++) {
-        this->colorDescriptorIndexesDB[i][j]=hisImg[j];
-        this->textureDescriptorIndexesDB[i][j]=principalDiag[j];
+          for(int j =0 ; j<256;j++) {
+            this->colorDescriptorIndexesDB[i][j]=hisImg[j];
+            this->textureDescriptorIndexesDB[i][j]=principalDiag[j];
+          }
+      }else{
+          cout << "image with name "<< i+1 <<".jpg cannot be read in indexation process or doesnt exist !!!"<<endl;
       }
    }
    return true;
@@ -40,7 +43,7 @@ bool SearchEngine::doIndexationProcess() {
 
 //Online Work :
 char ** SearchEngine::searchTopTenByTheGivenDescriptor(int descriptor,char * requestImgPath) {
-    cout <<"REQUEST IMAGE PATH = "<<requestImgPath<<endl;
+    cout <<"DESCRIPTOR =  "<< descriptor <<endl;
     const Mat reqImgMat = imread(requestImgPath,CV_LOAD_IMAGE_GRAYSCALE);
 
     char ** topTen = new char * [10];
@@ -63,14 +66,15 @@ char ** SearchEngine::searchTopTenByTheGivenDescriptor(int descriptor,char * req
         }
         sortedResults = this->ut.triSelection(results,1000);
     }
-    char temporary[20];
+    char temporary[50];
     for(int i=0;i<10;i++) {
+        cout << sortedResults[i].distance<< endl;
         topTen[i] = new char[10];
         sprintf(topTen[i],"%d",sortedResults[i].index);
         strcat(topTen[i],".jpg");
 
         strcat(topTen[i],"$");
-        sprintf(temporary,"%d",sortedResults[i].distance);
+        sprintf(temporary,"%0.7f",sortedResults[i].distance);
         strcat(topTen[i],temporary);
 
     }

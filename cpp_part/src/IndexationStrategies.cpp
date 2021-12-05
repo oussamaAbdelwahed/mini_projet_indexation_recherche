@@ -4,7 +4,7 @@ IndexationStrategies::IndexationStrategies(){}
 
 IndexationStrategies::~IndexationStrategies(){}
 
- int  * IndexationStrategies::createHistogram(const Mat * image)  {
+int  * IndexationStrategies::createHistogram(const Mat * image)  {
   int N=256;
   int  * histogram = new int[N];
   for(int i=0;i<N;i++) histogram[i] = 0;
@@ -25,8 +25,8 @@ int * IndexationStrategies::createPrincipalDiagonalFromCorrelograme(const Mat * 
     //declaring Corrélogramme
     int ** correlogramme ;
     correlogramme = new int * [pixelNum];
-        for (int i=0; i<pixelNum; ++i)
-            correlogramme [i] = new int [pixelNum];
+    for (int i=0; i<pixelNum; ++i)
+        correlogramme [i] = new int [pixelNum];
 
     // initializing Corrélogramme
     for(int r = 0; r < pixelNum; r++) {

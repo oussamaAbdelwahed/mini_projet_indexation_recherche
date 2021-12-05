@@ -38,6 +38,7 @@ public class FileUploadController {
         String [] mesuredDistances = new String[10];
         
         redirectAttributes.addFlashAttribute("requestImage",encodedBase64ReqImage);
+        redirectAttributes.addFlashAttribute("descriptor",descriptor);
        
         
         for(int i=0;i<res.length -1;i++) {

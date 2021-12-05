@@ -45,7 +45,7 @@ void TcpSocketServer::init()
         perror("bind failed");
         exit(EXIT_FAILURE);
     }
-    printf("Listener on port %d \n", this->PORT);
+    printf("Listening on port %d \n", this->PORT);
 
     //try to specify maximum of MAX_PENDING_REQUESTS pending connections for the master socket
     if (listen(this->master_socket, MAX_PENDING_REQUESTS) < 0){

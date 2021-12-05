@@ -35,6 +35,7 @@ double Utils::distanceEuclidienne(int* Vect1,int* Vect2,int length)
     return sqrt(result);
 }
 
+
 Element * Utils::triSelection(Element * t , int taille) {
     int i,mini,j;
     Element x;
