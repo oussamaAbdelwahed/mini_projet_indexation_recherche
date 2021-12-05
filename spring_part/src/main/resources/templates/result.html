@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="requestImgContainer">
+  <h1>Request Image</h1>
+   <img th:src="@{'data:image/jpeg;base64,'+${requestImage}}"/>
+  <p style="visibility:hidden;" id="reqImgPath" th:text="${requestImage}"></p>
+</div>
+<br><br>
+
+<h1>Resulting similar images</h1>
+<tr th:each="index : ${#numbers.sequence( 0, #arrays.length(resultingImages)-1)}">
+    <img th:src="${resultingImages[index]}" width="300px" height="300px"/>
+    <p th:text="'Matching Score = '+ ${resultingScores[index]}"></p>
+</tr>
+<script type="text/javascript">
+  /*setTimeout(function(e){
+    const reqImgUrl = document.getElementById("reqImgPath").textContent; 
+    const image = document.createElement('img');
+    image.id="reqImageHTML";
+    image.src=reqImgUrl;
+    document.getElementById('requestImgContainer').appendChild(image);
+    var img  = document.getElementById("reqImageHTML");
+    while(!img.complete || img.naturalHeight == 0){
+       
+        document.getElementById('requestImgContainer').appendChild(image);
+    }*/
+  },2000);
+</script>
+</body>
+</html>
