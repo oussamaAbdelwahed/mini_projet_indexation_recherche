@@ -12,7 +12,7 @@
   <div class="cards">
   <div class="card ">
     <div class="card__image-holder">
-      <img class="card__image" th:src="@{'data:image/jpeg;base64,'+${requestImage}}" />
+      <img class="card__image" th:src="@{'data:image/jpeg;base64,'+${requestImage}}" style="height:300px;width:150px;"/>
     </div>
     <div class="card-title">
       <h2 class="text-center">
@@ -27,11 +27,11 @@
   
 <div class="card" th:each="index : ${#numbers.sequence( 0, #arrays.length(resultingImages)-1)}">
     <div class="card__image-holder">
-      <img class="card__image" th:src="${resultingImages[index]}"/>
+      <img class="card__image" th:src="${resultingImages[index]}" />
     </div>
     <div class="card-title">
       <h2>
-          <small><p th:text="' Similarité en terme de distance'+ ${resultingScores[index]}"></p></small>
+          <small><p th:text="' Similarité en terme de distance '+ ${resultingScores[index]}"></p></small>
       </h2>
     </div>
 
