@@ -2,16 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>OUSSAMA TEST</title>
 </head>
 <body>
 <form method="POST" action="http://localhost:8080/search" enctype="multipart/form-data">
     <input type="file" name="img" />
+     <br>
+   <br>
+    <label for="color">par  couleur(histogramme)</label>
+    <input type="radio" id="color" name="descriptor" value="0" checked>
+    
+     <label for="texture">par texture(correlogramme)</label>
+    <input type="radio" id="texture" name="descriptor" value="1">
+    <br>
+    <br><br>
     <input type="submit"/><br>
-    <input type="radio" id="html" name="fav_language" value="HTML">
-    <label for="html">par  couleur</label>
-    <input type="radio" id="css" name="fav_language" value="CSS">
-    <label for="css">par texture</label><br>
 </form>
 </body>
 </html>

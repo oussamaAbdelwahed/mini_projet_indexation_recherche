@@ -1,35 +1,45 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Result</title>
+  <link rel="stylesheet" href="./style2.css">
+
 </head>
 <body>
-<div id="requestImgContainer">
-  <h1>Request Image</h1>
-   <img th:src="@{'data:image/jpeg;base64,'+${requestImage}}"/>
-  <p style="visibility:hidden;" id="reqImgPath" th:text="${requestImage}"></p>
-</div>
-<br><br>
+ <h1><a href="http://localhost:8080">Revenir à la page de recherche des images pour lancer une nouvelle recherche</a></h1>
 
-<h1>Resulting similar images</h1>
-<tr th:each="index : ${#numbers.sequence( 0, #arrays.length(resultingImages)-1)}">
-    <img th:src="${resultingImages[index]}" width="300px" height="300px"/>
-    <p th:text="'Matching Score = '+ ${resultingScores[index]}"></p>
-</tr>
-<script type="text/javascript">
-  /*setTimeout(function(e){
-    const reqImgUrl = document.getElementById("reqImgPath").textContent; 
-    const image = document.createElement('img');
-    image.id="reqImageHTML";
-    image.src=reqImgUrl;
-    document.getElementById('requestImgContainer').appendChild(image);
-    var img  = document.getElementById("reqImageHTML");
-    while(!img.complete || img.naturalHeight == 0){
-       
-        document.getElementById('requestImgContainer').appendChild(image);
-    }*/
-  },2000);
-</script>
+  <div class="cards">
+  <div class="card ">
+    <div class="card__image-holder">
+      <img class="card__image" th:src="@{'data:image/jpeg;base64,'+${requestImage}}" />
+    </div>
+    <div class="card-title">
+      <h2 class="text-center">
+         Image Requete
+      </h2>
+    </div>
+  </div>
+  </div>
+<!-- partial:index.partial.html -->
+<div class="cards">
+<h1 th:text="'Images résultantes avec une recherche qui utilise le descripteur ' + ${descriptor=='0' ? 'couleur(Histogramme)' : ' texture(Correlogramme)'}" style="color: aliceblue;"></h1>
+  
+<div class="card" th:each="index : ${#numbers.sequence( 0, #arrays.length(resultingImages)-1)}">
+    <div class="card__image-holder">
+      <img class="card__image" th:src="${resultingImages[index]}"/>
+    </div>
+    <div class="card-title">
+      <h2>
+          <small><p th:text="' Similarité en terme de distance'+ ${resultingScores[index]}"></p></small>
+      </h2>
+    </div>
+
+</div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script><script  src="./script.js"></script>
+
 </body>
 </html>

@@ -1,22 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <title>OUSSAMA TEST</title>
+  <meta charset="UTF-8">
+  <title>Moteur de recherche IDL 02</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Hind+Guntur:300,400,500,600,700&amp;display=swap'><link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<form method="POST" action="http://localhost:8080/search" enctype="multipart/form-data">
-    <input type="file" name="img" />
-     <br>
-   <br>
-    <label for="color">par  couleur(histogramme)</label>
-    <input type="radio" id="color" name="descriptor" value="0" checked>
+  <h1 style="color:white;font-size:36px;fond-weight:bold;">Bienvenue au moteur de recherche des images</h1>
+  <div class="frame">
+    <div class="center">
     
-     <label for="texture">par texture(correlogramme)</label>
-    <input type="radio" id="texture" name="descriptor" value="1">
-    <br>
-    <br><br>
-    <input type="submit"/><br>
-</form>
+      <form style="padding:10px;" method="POST" action="http://localhost:8080/search" enctype="multipart/form-data">
+         <br>
+        <label for="outputfile">Glissez et déposez l'image requete ici</label>
+        <div class="dropzone" style="margin-top: 10px;">
+          <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+          <input type="file" id='inputfile' onChange='getoutput()' class="upload-input"  name="img" /> 
+        </div>
+
+        <br>
+        <br>
+
+        <input id='outputfile' type='text' name='outputfile' placeholder="Filename...          ">
+
+        <br>
+        <p>Recherche avec les descripteurs :</p>
+        <label for="color">Couleur(Histogramme)</label>
+        <input type="radio" id="color" name="descriptor" value="0" checked>
+        
+        <label for="texture">Texture(Corrélogramme)</label>
+       <input type="radio" size="15" id="texture" name="descriptor" value="1">
+  
+    
+        
+        <button type="submit" class="btn" name="uploadbutton">Lancer la recherche</button>
+
+
+    </form>
+    </div>
+  </div>
+
+  <script>
+    function getFile(filePath) {
+        return filePath.substr(filePath.lastIndexOf('\\') + 1).split('.')[0];
+    }
+
+    function getoutput() {
+        outputfile.value = getFile(inputfile.value);
+        extension.value = inputfile.value.split('.')[1];
+    }
+  </script>
+ <script src='https://100dayscss.com/codepen/js/jquery.min.js'></script><script  src="./script.js"></script>
 </body>
 </html>
+

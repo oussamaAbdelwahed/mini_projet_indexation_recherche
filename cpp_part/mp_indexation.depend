@@ -830,3 +830,57 @@
 1637415804 source:/home/oussama/DEV/C_C++_WS/C++/mp_indexation/src/Element.cpp
 	"Element.h"
 
+1642500196 source:/home/oussama/Desktop/mini_projet_indexation_recherche/cpp_part/main.cpp
+	<stdio.h>
+	<TcpSocketServer.h>
+	<Utils.h>
+	<SearchEngine.h>
+	<string.h>
+
+1642500196 /home/oussama/Desktop/mini_projet_indexation_recherche/cpp_part/include/TcpSocketServer.h
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<errno.h>
+	<unistd.h>
+	<arpa/inet.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<sys/time.h>
+	<SearchEngine.h>
+
+1642500196 /home/oussama/Desktop/mini_projet_indexation_recherche/cpp_part/include/SearchEngine.h
+	<IndexationStrategies.h>
+	<Utils.h>
+
+1642500196 /home/oussama/Desktop/mini_projet_indexation_recherche/cpp_part/include/IndexationStrategies.h
+	<math.h>
+	<opencv2/opencv.hpp>
+
+1642500196 /home/oussama/Desktop/mini_projet_indexation_recherche/cpp_part/include/Utils.h
+	<string.h>
+	<fstream>
+	<sys/stat.h>
+	<Element.h>
+
+1642500196 /home/oussama/Desktop/mini_projet_indexation_recherche/cpp_part/include/Element.h
+
+1642500196 source:/home/oussama/Desktop/mini_projet_indexation_recherche/cpp_part/src/Element.cpp
+	"Element.h"
+
+1642500196 source:/home/oussama/Desktop/mini_projet_indexation_recherche/cpp_part/src/IndexationStrategies.cpp
+	"IndexationStrategies.h"
+
+1642500196 source:/home/oussama/Desktop/mini_projet_indexation_recherche/cpp_part/src/SearchEngine.cpp
+	"SearchEngine.h"
+	<string.h>
+
+1642500196 source:/home/oussama/Desktop/mini_projet_indexation_recherche/cpp_part/src/TcpSocketServer.cpp
+	"TcpSocketServer.h"
+
+1642500196 source:/home/oussama/Desktop/mini_projet_indexation_recherche/cpp_part/src/Utils.cpp
+	"Utils.h"
+	<math.h>
+	<SearchEngine.h>
+

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Request Image</h1>
+<img th:src="@{'data:image/jpeg;base64,'+${requestImage}}"/>
+
+<br><br>
+
+<h1 th:text="'Resulting similar images using descriptor of type ' + ${descriptor=='0' ? 'color: Histogram' : ' texture: Correlogram'}"> </h1>
+<tr th:each="index : ${#numbers.sequence( 0, #arrays.length(resultingImages)-1)}">
+    <img th:src="${resultingImages[index]}" width="300px" height="300px"/>
+    <p th:text="'Matching Score = '+ ${resultingScores[index]}"></p>
+</tr>
+
+</body>
+</html>
