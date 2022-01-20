@@ -3,7 +3,7 @@
 #include<string.h>
 #include <fstream>
 #include <sys/stat.h>
-
+#include<vector>
 #include<Element.h>
 
 using namespace std;
@@ -25,6 +25,7 @@ public:
     virtual ~Utils();
 
     int Min(int x , int y);
+    vector<string> split(string s,string delimiter);
     double distanceIntersection(int * H1 , int * H2 ,int rowNumber, int colNumber ) ;
     double distanceEuclidienne(int* Vect1,int* Vect2,int length);
 

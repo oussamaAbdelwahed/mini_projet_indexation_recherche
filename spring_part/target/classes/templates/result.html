@@ -7,12 +7,12 @@
 
 </head>
 <body>
- <h1><a href="http://localhost:8080">Revenir à la page de recherche des images pour lancer une nouvelle recherche</a></h1>
+ <h1><a href="http://localhost:8080">Revenir à la recherche</a></h1>
 
   <div class="cards">
   <div class="card ">
     <div class="card__image-holder">
-      <img class="card__image" th:src="@{'data:image/jpeg;base64,'+${requestImage}}" style="height:300px;width:150px;"/>
+      <img class="card__image" th:src="@{'data:image/jpeg;base64,'+${requestImage}}"/>
     </div>
     <div class="card-title">
       <h2 class="text-center">

@@ -14,6 +14,8 @@ public:
     //OFFLINE WORK
     bool doIndexationProcess();
 
+    bool readPrecalculatedIndexesFromFiles();
+
     //int * indexUsingHistogram(char * imageAbsolutePath);
 
     //int * indexUsingCorrelogram(char * imageAbsolutePath);

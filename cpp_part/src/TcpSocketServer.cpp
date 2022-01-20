@@ -14,10 +14,20 @@ TcpSocketServer::~TcpSocketServer() {}
 
 
 //INIT TCP SOCKET SERVER PARAMS
-void TcpSocketServer::init()
-{
-    this->en.doIndexationProcess();
-    cout << "FINISHED INDEXATION PROCESS !"<<endl;
+void TcpSocketServer::init(){
+    //test if the files of indexes exists, then we don't have to do indexation process
+    std::ifstream histogram_indexes_file("histogram_indexes.csv");
+    std::ifstream correlogram_indexes_file("correlogram_indexes.csv");
+
+    if(!histogram_indexes_file.good() || !correlogram_indexes_file.good()){
+      histogram_indexes_file.close();
+      correlogram_indexes_file.close();
+      this->en.doIndexationProcess();
+      cout << "FINISHED INDEXATION PROCESS !"<<endl;
+    }else{
+      //here call another method to fill up the 2 indexes matrices from the 2 indexes files
+       this->en.readPrecalculatedIndexesFromFiles();
+    }
 
     for (int i = 0; i < this->max_clients; i++){
         this->client_socket[i] = 0;
