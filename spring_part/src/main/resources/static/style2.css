@@ -90,12 +90,15 @@ div.card {
 }
 div.card img {
   max-width: 300px;
+  max-height:200px;
 }
 div.card .card__image-holder {
   background: rgba(0, 0, 0, 0.1);
   height: 0;
   padding-bottom: 75%;
-  overflow:hidde;
+  height:250px;
+  width:170px;
+  overflow: hidden;
 }
 
 .card-title {
@@ -106,6 +109,7 @@ div.card div.card-title {
   padding: 6px 15px 10px;
   position: relative;
   z-index: 0;
+  top:20px;
 }
 div.card div.card-title a.toggle-info {
   border-radius: 32px;

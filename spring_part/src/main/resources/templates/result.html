@@ -10,9 +10,9 @@
  <h1><a href="http://localhost:8080">Revenir à la recherche</a></h1>
 
   <div class="cards">
-  <div class="card ">
+  <div class="card">
     <div class="card__image-holder">
-      <img class="card__image" th:src="@{'data:image/jpeg;base64,'+${requestImage}}"/>
+      <img class="card__image" th:src="@{'data:image/jpeg;base64,'+${requestImage}}" style="height:300px;width:300px;"/>
     </div>
     <div class="card-title">
       <h2 class="text-center">
@@ -27,11 +27,11 @@
   
 <div class="card" th:each="index : ${#numbers.sequence( 0, #arrays.length(resultingImages)-1)}">
     <div class="card__image-holder">
-      <img class="card__image" th:src="${resultingImages[index]}" />
+      <img class="card__image" th:src="${resultingImages[index]}" style="height:300px;width:300px;"/>
     </div>
     <div class="card-title">
       <h2>
-          <small><p th:text="' Similarité en terme de distance '+ ${resultingScores[index]}"></p></small>
+          <small><p th:text="'Similarité en terme de distance = '+ ${resultingScores[index]}"></p></small>
       </h2>
     </div>
 
